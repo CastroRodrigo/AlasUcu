@@ -4,7 +4,9 @@ package alasucu;
 import alasucu.grafo.ManejadorArchivosGenerico;
 import alasucu.grafo.TCamino;
 import alasucu.grafo.TCaminos;
+import alasucu.grafo.TGrafoDirigido;
 import alasucu.grafo.TVertice;
+import alasucu.grafo.UtilGrafos;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.*;
@@ -12,7 +14,7 @@ import java.util.*;
 /**
  * @author Rodrigo Castro
  */
-public class AlasUcuAdapter implements IAlasUcuAdapter {
+public class AlasUcuAdapter{
     
     private HashMap<Comparable, Aeropuerto> aeropuertos = new HashMap<>(); 
     private ArrayList<Vuelo> vuelos = new ArrayList<>();
@@ -26,12 +28,14 @@ public class AlasUcuAdapter implements IAlasUcuAdapter {
         return aeropuertos;
     }
     
-    @Override
+    public ArrayList<Conexiones> getConexiones(){
+        return conexiones;
+    }
+    
     public void cargarAeropuertosVuelos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public String listarAeropuertos() {
         ArrayList<Comparable> resultado = new ArrayList<>();
         for(Comparable key:aeropuertos.keySet()){
@@ -79,27 +83,6 @@ public class AlasUcuAdapter implements IAlasUcuAdapter {
         return resultado.toString();
     }
 
-    @Override
-    public TCaminos getListaDeRecorridos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public TCaminos getRecorridosDeUnOrigen(Comparable origen) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public TCamino getRecorridoOptimo(Comparable origen, Comparable destino) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public TCamino getRecorridoOptimo(Comparable origen, Comparable destino, Comparable fecha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void crearAeropuertos(String archivoAeropuertos, boolean ignoreHeader) {
         
         String[] lineasArchivo = ManejadorArchivosGenerico.leerArchivo(archivoAeropuertos, ignoreHeader);
@@ -115,7 +98,6 @@ public class AlasUcuAdapter implements IAlasUcuAdapter {
         }
     } 
 
-    @Override
     public void crearVuelos(String achivoVuelos, boolean ignoHead) {
         
         String[] lineasArchivo = ManejadorArchivosGenerico.leerArchivo(achivoVuelos, ignoHead);
@@ -130,7 +112,6 @@ public class AlasUcuAdapter implements IAlasUcuAdapter {
         }
     }
 
-    @Override
     public String listarVuelos() {
         ArrayList<Comparable> resultado = new ArrayList<>();
         for(Vuelo vuelo:vuelos){
@@ -140,6 +121,13 @@ public class AlasUcuAdapter implements IAlasUcuAdapter {
         return resultado.toString();
     }
     
+    public TGrafoDirigido cargarEstructuras(){
+        crearAeropuertos("src/Files/aeropuertos.csv", true);
+        crearVuelos("src/Files/vuelosTest.txt", true);
+        crearConexiones();
+        TGrafoDirigido gd = (TGrafoDirigido) UtilGrafos.cargarGrafo( getAeropuertos(),getConexiones(), TGrafoDirigido.class);
+        return gd;
     
+    }
     
 }

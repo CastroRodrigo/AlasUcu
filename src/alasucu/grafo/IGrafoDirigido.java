@@ -1,8 +1,10 @@
 package alasucu.grafo;
-
 import java.util.Map;
 
-
+/**
+ *
+ * @author Rodrigo Castro
+ */
 public interface IGrafoDirigido {
 
     

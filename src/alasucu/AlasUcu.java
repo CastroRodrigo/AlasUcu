@@ -5,9 +5,11 @@
  */
 package alasucu;
 
+import alasucu.grafo.TGrafoDirigido;
+import alasucu.grafo.UtilGrafos;
+
 /**
- *
- * @author Rodrigo
+ * @author Rodrigo Castro
  */
 public class AlasUcu {
 
@@ -19,15 +21,18 @@ public class AlasUcu {
         
         AlasUcuAdapter adapter = new AlasUcuAdapter();
         
-        adapter.crearAeropuertos("src/Files/aeropuertos.csv", true);
+        //adapter.crearAeropuertos("src/Files/aeropuertos.csv", true);
         //System.out.println(adapter.listarAeropuertos());
 
-        adapter.crearVuelos("src/Files/vuelos.csv", true);
+        //adapter.crearVuelos("src/Files/vuelosTest.txt", true);
         //System.out.println(adapter.listarVuelos());
 
-        adapter.crearConexiones();
-        System.out.println(adapter.listarConexiones());
+        //adapter.crearConexiones();
+        //System.out.println(adapter.listarConexiones());
         
+            TGrafoDirigido gd = adapter.cargarEstructuras();
+            //System.out.println(gd.bpf());
+            gd.todosLosCaminos("YAM", "YQT").imprimir();
     }
     
 }

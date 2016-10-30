@@ -9,6 +9,9 @@ import java.util.TreeMap;
 import java.util.Vector;
 import sun.misc.Queue;
 
+/**
+ * @author Rodrigo Castro
+ */
 public class TGrafoDirigido implements IGrafoDirigido {
 
     protected Map<Comparable, TVertice> vertices; // vertices del grafo.-

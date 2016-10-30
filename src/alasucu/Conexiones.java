@@ -4,7 +4,6 @@ package alasucu;
 import java.util.ArrayList;
 
 /**
- *
  * @author Rodrigo Castro
  */
 public class Conexiones {

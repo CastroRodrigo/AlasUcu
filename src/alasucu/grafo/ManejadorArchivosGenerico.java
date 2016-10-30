@@ -8,6 +8,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * @author Rodrigo Castro
+ */
 public class ManejadorArchivosGenerico {
 
     /**

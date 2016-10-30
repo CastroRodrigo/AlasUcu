@@ -5,6 +5,9 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * @author Rodrigo Castro
+ */
 public class TVertice implements IVertice{
 
     private Comparable etiqueta;

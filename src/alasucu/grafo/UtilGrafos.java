@@ -1,13 +1,19 @@
 package alasucu.grafo;
 
+import alasucu.Aeropuerto;
+import alasucu.Conexiones;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * @author Rodrigo Castro
+ */
 public class UtilGrafos {
 
     public static Double[][] obtenerMatrizCostos(Map<Comparable, TVertice> vertices) {
@@ -226,4 +232,26 @@ public class UtilGrafos {
         } 
         return null;
     }
+    
+    public static <T extends IGrafoDirigido> T cargarGrafo(HashMap<Comparable,Aeropuerto> vertices , ArrayList<Conexiones> conexiones, Class t  ){
+        
+        List<TVertice> verticesList = new ArrayList<>();
+        List<TArista> aristasList = new ArrayList<>();
+        
+        for(Comparable vertice:vertices.keySet()){
+            verticesList.add(new TVertice(vertice));   
+        }
+        for(Conexiones conexion:conexiones){
+            aristasList.add(new TArista(conexion.getOrigen(),conexion.getDestino(),0.0));   
+        }
+        try {
+            t.getConstructor(Collection.class, Collection.class);
+            return (T) (t.getConstructor(Collection.class, Collection.class).newInstance(verticesList, aristasList));
+        } catch (Exception ex) {
+            Logger.getLogger(UtilGrafos.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+     return null;   
+    }
+    
+    
 }

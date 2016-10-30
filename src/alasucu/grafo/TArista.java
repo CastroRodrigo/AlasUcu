@@ -1,5 +1,8 @@
 package alasucu.grafo;
 
+/**
+ * @author Rodrigo Castro
+ */
 public class TArista implements IArista {
 
     protected Comparable etiquetaOrigen;

@@ -1,5 +1,8 @@
 package alasucu.grafo;
 
+/**
+ * @author Rodrigo Castro
+ */
 public class TAdyacencia implements IAdyacencia {
    
 
