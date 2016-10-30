@@ -1,0 +1,13 @@
+Airport ID;Name;City;Country;IATA/FAA;ICAO;Latitude;Longitude;Altitude;Timezone;DST;Tz database time zone
+21;Sault Ste Marie;Sault Sainte Marie;Canada;YAM;CYAM;46.485.001;-84.509.445;630;-5;A;America/Toronto
+22;Winnipeg St Andrews;Winnipeg;Canada;YAV;CYAV;50.056.389;-970.325;760;-6;A;America/Winnipeg
+23;Shearwater;Halifax;Canada;YAW;CYAW;44.639.721;-63.499.444;167;-4;A;America/Halifax
+24;St Anthony;St. Anthony;Canada;YAY;CYAY;51.391.944;-56.083.056;108;-3.5;A;America/St_Johns
+25;Tofino;Tofino;Canada;YAZ;CYAZ;49.082.222;-1.257.725;80;-8;A;America/Vancouver
+26;Kugaaruk;Pelly Bay;Canada;YBB;CYBB;68.534.444;-89.808.056;56;-7;A;America/Edmonton
+27;Baie Comeau;Baie Comeau;Canada;YBC;CYBC;491.325;-68.204.444;71;-5;A;America/Toronto
+28;Bagotville;Bagotville;Canada;YBG;CYBG;48.330.555;-70.996.391;522;-5;A;America/Toronto
+29;Baker Lake;Baker Lake;Canada;YBK;CYBK;64.298.889;-96.077.778;59;-6;A;America/Winnipeg
+30;Campbell River;Campbell River;Canada;YBL;CYBL;49.950.832;-125.270.833;346;-8;A;America/Vancouver
+31;Brandon Muni;Brandon;Canada;YBR;CYBR;49.91;-99.951.944;1343;-6;A;America/Winnipeg
+32;Cambridge Bay;Cambridge Bay;Canada;YCB;CYCB;69.108.055;-105.138.333;90;-7;A;America/Edmonton

@@ -15,10 +15,10 @@ public class Aeropuerto {
     private final String latitude;
     private final String altitude;
     private final String timeZone;
-    private final String dst;
+    private final Double dst;
     private final String databaseTimeZone;
 
-    public Aeropuerto(String name, String city, String country, Comparable iata, String icao, String longitude, String latitude, String altitude, String timeZone, String dst, String databaseTimeZone) {
+    public Aeropuerto(String name, String city, String country, Comparable iata, String icao, String longitude, String latitude, String altitude, Double dst,String timeZone,String databaseTimeZone) {
         this.name = name;
         this.city = city;
         this.country = country;
@@ -68,7 +68,7 @@ public class Aeropuerto {
         return timeZone;
     }
 
-    public String getDst() {
+    public Double getDst() {
         return dst;
     }
 
