@@ -25,6 +25,9 @@ public class Conexiones {
         return destino;
     }
     
+    public ArrayList<Vuelo> getVuelos(){
+        return vuelos;
+    }
     /**
      * Metodo que agrega cuelos a una coleccion en cada conexion
      * @param vuelo Un objeto de tipo Vuelo

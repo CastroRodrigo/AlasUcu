@@ -16,8 +16,7 @@ public class AlasUcu {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) {        
         
         AlasUcuAdapter adapter = new AlasUcuAdapter();
         
@@ -30,9 +29,13 @@ public class AlasUcu {
         //adapter.crearConexiones();
         //System.out.println(adapter.listarConexiones());
         
-            TGrafoDirigido gd = adapter.cargarEstructuras();
+        TGrafoDirigido gd = adapter.cargarEstructuras();
             //System.out.println(gd.bpf());
-            gd.todosLosCaminos("YAM", "YQT").imprimir();
+            
+        gd.todosLosCaminos("YAM", "YWG").imprimir();
+            
+        System.out.println(adapter.informacionDeRecorridos("YAM", "YWG", gd));
+            
     }
     
 }

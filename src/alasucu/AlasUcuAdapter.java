@@ -45,6 +45,25 @@ public class AlasUcuAdapter{
         return resultado.toString();  
     }
     
+    public String InformacionAeropuerto(String aeropuerto){
+        StringBuilder resultado = new StringBuilder();
+        if(aeropuertos.containsKey(aeropuerto)){
+            Aeropuerto aux = aeropuertos.get(aeropuerto);
+            resultado.append("NOMBRE: ").append(aux.getName());
+            resultado.append("PAIS: ").append(aux.getCountry());
+            resultado.append("CIUDAD: ").append(aux.getCity());
+            resultado.append("IATA: ").append(aux.getIata());
+            resultado.append("ICAO: ").append(aux.getIcao());
+            resultado.append("LONGITUD: ").append(aux.getLongitude());
+            resultado.append("LATITUD: ").append(aux.getLongitude());
+            resultado.append("ALTITUDE: ").append(aux.getAltitude());
+            resultado.append("ZONA HORARIA: ").append(aux.getTimeZone());
+            resultado.append("DST: ").append(aux.getDst());
+            resultado.append("ZONA HORARIA BASE DE DATOS: ").append(aux.getDatabaseTimeZone());        
+        }
+        return resultado.toString();
+    }
+    
     /**
      * Metodo que crea las conexiones y las agrega a una coleccion
      */
@@ -127,7 +146,31 @@ public class AlasUcuAdapter{
         crearConexiones();
         TGrafoDirigido gd = (TGrafoDirigido) UtilGrafos.cargarGrafo( getAeropuertos(),getConexiones(), TGrafoDirigido.class);
         return gd;
+    }
     
+    public String informacionDeRecorridos(String Origen, String Destino,TGrafoDirigido grafo){
+        TCaminos caminos = grafo.todosLosCaminos(Origen, Destino);
+        StringBuilder resultado = new StringBuilder();
+        for(TCamino camino:caminos.getCaminos()){
+           Comparable etiquetaOrigen = camino.getOrigen().getEtiqueta();
+           for(Comparable vertice:camino.getOtrosVertices()){
+               Comparable etiquetaDestino = vertice;
+               for(Conexiones conexion:conexiones){
+                   if(conexion.getOrigen().equals(etiquetaOrigen) && conexion.getDestino().equals(etiquetaDestino)){
+                       ArrayList<Vuelo> vuelos = conexion.getVuelos();
+                       resultado.append("--------------------------------------------").append("\n");
+                       resultado.append("VUELOS DESDE ").append(conexion.getOrigen()).append(" HASTA ").append(conexion.getDestino()).append("\n");
+                       for(Vuelo vuelo:vuelos){
+                           resultado.append("  COSTO: ").append(vuelo.getCosto());
+                           resultado.append("  LLEGADA: ").append(vuelo.getLlegadaFechaHora());
+                           resultado.append("  SALIDA: ").append(vuelo.getSalidaFechaHora());
+                           resultado.append("\n");
+                       }
+               }
+           }     
+        }
+    }
+      return resultado.toString();
     }
     
 }
